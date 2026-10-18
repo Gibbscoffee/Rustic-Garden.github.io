@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One-color black version suitable for stamps and single-color printing -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 570" role="img" aria-label="The Rustic Garden logo - black">
+  <rect fill="#000000" x="0" y="0" width="1200" height="570" rx="8"/>
+  <text x="60" y="120" font-family="Georgia, serif" font-weight="700" fill="#FFFFFF" font-size="64">The</text>
+  <text x="70" y="260" font-family="Lobster Two, cursive" font-weight="700" fill="#FFFFFF" font-size="220">Rustic</text>
+  <text x="930" y="300" font-family="Georgia, serif" font-weight="700" fill="#FFFFFF" font-size="120" text-anchor="end">Garden</text>
+  <rect x="0" y="480" width="1200" height="90" fill="#000000"/>
+  <g transform="translate(36,525)" font-family="Georgia, serif" font-weight="700" fill="#FFFFFF" font-size="28">
+    <text>Events Garden</text>
+  </g>
+</svg>

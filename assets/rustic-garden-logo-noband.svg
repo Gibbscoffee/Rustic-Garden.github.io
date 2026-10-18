@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reduced lockup (no descriptor band) - straight script, compact -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="The Rustic Garden reduced lockup">
+  <rect fill="#007F3D" x="0" y="0" width="900" height="300" rx="6"/>
+  <text x="28" y="70" font-family="Georgia, serif" font-weight="700" fill="#FFFFFF" font-size="36">The</text>
+  <text x="28" y="180" font-family="Lobster Two, cursive" font-weight="700" fill="#FFF200" font-size="140">Rustic</text>
+  <text x="760" y="200" font-family="Georgia, serif" font-weight="700" fill="#FFFFFF" font-size="60" text-anchor="end">Garden</text>
+</svg>

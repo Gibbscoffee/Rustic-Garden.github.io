@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Swash R icon - simplified script R for favicon / avatar use -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Rustic R icon">
+  <rect width="512" height="512" fill="#007F3D" rx="24"/>
+  <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-family="Lobster Two, cursive" font-size="320" fill="#FFF200" font-weight="700">R</text>
+</svg>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Full-color lockup (straightened "Rustic")
+     Generated as an SVG approximation for web use. Refer: RG-BIS-001
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="570" viewBox="0 0 1200 570" role="img" aria-label="The Rustic Garden logo">
+  <defs>
+    <style>
+      .bg{fill:#007F3D}
+      .band{fill:#FFF200}
+      .ink{fill:#231F20}
+      .white{fill:#FFFFFF}
+      .script{font-family:'Lobster Two', 'Brush Script MT', cursive; font-weight:700}
+      .serif{font-family:Georgia, 'Times New Roman', serif; font-weight:700}
+      .shadow{fill:#231F20; opacity:0.95}
+    </style>
+  </defs>
+  <!-- green field -->
+  <rect class="bg" x="0" y="0" width="1200" height="570" rx="8"/>
+
+  <!-- 'The' (small, top-left) with shadow -->
+  <text x="60" y="120" class="serif white" font-size="64">The</text>
+  <text x="64" y="124" class="shadow" font-size="64" opacity="0.9"/>
+
+  <!-- 'Rustic' (script, straight) with drop shadow simulation -->
+  <text x="70" y="260" class="script" font-size="220" fill="#FFF200" style="letter-spacing:0.02em;">
+    <tspan style="filter:drop-shadow(6px 6px 0 rgba(35,31,32,0.95));">Rustic</tspan>
+  </text>
+
+  <!-- 'Garden' (right-aligned) -->
+  <text x="930" y="300" class="serif white" font-size="120" text-anchor="end">Garden</text>
+
+  <!-- dashed rule (to right of swash area) -->
+  <line x1="600" y1="310" x2="1020" y2="310" stroke="#FFF200" stroke-width="6" stroke-dasharray="24 12"/>
+
+  <!-- descriptor band -->
+  <rect class="band" x="0" y="480" width="1200" height="90"/>
+  <g transform="translate(36,525)" class="serif ink" font-size="28" font-weight="700">
+    <g>
+      <rect x="0" y="-18" width="18" height="18" fill="#007F3D" />
+      <text x="28" y="0">Events Garden</text>
+    </g>
+    <g transform="translate(210,0)">
+      <rect x="0" y="-18" width="18" height="18" fill="#007F3D" />
+      <text x="28" y="0">Coffee</text>
+    </g>
+    <g transform="translate(320,0)">
+      <rect x="0" y="-18" width="18" height="18" fill="#007F3D" />
+      <text x="28" y="0">Macadamia</text>
+    </g>
+    <g transform="translate(500,0)">
+      <rect x="0" y="-18" width="18" height="18" fill="#007F3D" />
+      <text x="28" y="0">Aquaculture</text>
+    </g>
+    <g transform="translate(740,0)">
+      <rect x="0" y="-18" width="18" height="18" fill="#007F3D" />
+      <text x="28" y="0">R&amp;D</text>
+    </g>
+  </g>
+
+  <!-- dotted edges top and bottom of band -->
+  <line x1="0" y1="480" x2="1200" y2="480" stroke="#231F20" stroke-width="4" stroke-dasharray="4 6"/>
+  <line x1="0" y1="570" x2="1200" y2="570" stroke="#231F20" stroke-width="4" stroke-dasharray="4 6"/>
+
+</svg>

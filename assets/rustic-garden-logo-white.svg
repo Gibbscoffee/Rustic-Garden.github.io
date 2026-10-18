@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reversed white artwork (white on transparent/dark) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 570" role="img" aria-label="The Rustic Garden logo - reversed">
+  <rect fill="rgba(0,0,0,0)" x="0" y="0" width="1200" height="570"/>
+  <rect x="0" y="0" width="1200" height="570" fill="#231F20" rx="8" />
+  <text x="60" y="120" font-family="Georgia, serif" font-weight="700" fill="#FFFFFF" font-size="64">The</text>
+  <text x="70" y="260" font-family="Lobster Two, cursive" font-weight="700" fill="#FFFFFF" font-size="220">Rustic</text>
+  <text x="930" y="300" font-family="Georgia, serif" font-weight="700" fill="#FFFFFF" font-size="120" text-anchor="end">Garden</text>
+  <rect x="0" y="480" width="1200" height="90" fill="#FFFFFF"/>
+  <g transform="translate(36,525)" font-family="Georgia, serif" font-weight="700" fill="#231F20" font-size="28">
+    <text>Events Garden</text>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Favicon SVG: circular mark with R -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rustic favicon">
+  <circle cx="32" cy="32" r="30" fill="#007F3D"/>
+  <text x="32" y="38" font-family="Lobster Two, cursive" font-size="34" text-anchor="middle" fill="#FFF200">R</text>
+</svg>
