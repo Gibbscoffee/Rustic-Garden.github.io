@@ -1,355 +1,237 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#00803e">
 <title>The Rustic Garden | Events Garden, Coffee, Macadamia, Aquaculture, R&amp;D</title>
-<meta name="description" content="The Rustic Garden: an events garden, coffee, macadamia, aquaculture and research farm near Mount Kenya, Kenya.">
-<meta name="theme-color" content="#007F3D">
-
-<meta name="brand-document-id" content="RG-BIS-001">
-<meta name="brand-version" content="1.0, draft for sign-off">
-<meta name="brand-date-issued" content="2026-10-18">
-<meta name="brand-source-artwork" content="Rustic header_261016_064902.pdf">
-
+<meta name="description" content="The Rustic Garden: an events garden, coffee, macadamia, aquaculture and R&D, with houseplants from Mandevu at Kwa Nyuki in Nairobi, Kenya.">
+<meta property="og:title" content="The Rustic Garden">
+<meta property="og:description" content="Events Garden, Coffee, Macadamia, Aquaculture and R&amp;D.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 <style>
-:root{
-  --green:#007F3D;
-  --yellow:#FFF200;
-  --ink:#231F20;
-  --white:#FFFFFF;
-  --paper:#F3F7F4;
-  --serif:"Calisto MT","Georgia",Cambria,serif;
-  --script:"Harlow Solid Italic","Harlow Solid","Lobster Two","Brush Script MT",cursive;
-  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --x:2.2rem;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.65;font-size:1.05rem}
-img{max-width:100%;display:block}
-a{color:var(--green)}
-.wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
+:root{--green:#00803e;--deep:#005a2b;--yellow:#fff200;--ink:#231f20;--white:#fff;--paper:#fffdea;
+--serif:"Libre Baskerville","Calisto MT",Georgia,serif;--script:"Pacifico","Harlow Solid Italic",cursive;--sans:"DM Sans",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 var(--sans)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{width:min(1100px,calc(100% - 40px));margin-inline:auto}
 
-.dots{height:8px;background:radial-gradient(circle,var(--yellow) 2px,transparent 2.5px) 0 50%/12px 8px repeat-x}
-.dots.ink{background-image:radial-gradient(circle,var(--ink) 2px,transparent 2.5px)}
+/* Header lockup from the PDF */
+.masthead{background:var(--green);padding:28px 0 46px;overflow:hidden}
+.lockup{position:relative;width:min(900px,100%);margin-inline:auto;aspect-ratio:900/330}
+.lockup span{position:absolute;white-space:nowrap;line-height:1}
+.the{left:1%;top:0;font:700 clamp(2.4rem,9vw,5.2rem) var(--serif);color:var(--white);text-shadow:.04em .04em 0 var(--ink)}
+.rustic{left:7%;top:6%;font:400 clamp(4.6rem,22vw,13.2rem) var(--script);color:var(--yellow);text-shadow:.045em .05em 0 var(--ink);transform:rotate(-4deg);transform-origin:left bottom}
+.garden{right:1%;bottom:4%;font:700 clamp(3rem,14vw,8.4rem) var(--serif);color:var(--white);text-shadow:.03em .04em 0 var(--ink)}
+.dash{height:0;border-top:6px dashed var(--yellow);margin:0 auto;width:min(900px,100%);position:relative;top:-6px}
+.tagline{margin:18px auto 0;text-align:center;color:var(--white);font:italic 400 1.05rem/1.5 var(--serif)}
 
-header.site{position:sticky;top:0;z-index:50;background:var(--green);color:var(--white)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 1.25rem;max-width:1120px;margin:0 auto}
-.nav .brand{font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--white);text-decoration:none}
-.nav .brand em{font-family:var(--script);font-style:italic;color:var(--yellow);font-size:1.45rem;font-weight:700;margin:0 .1rem}
-.nav ul{display:flex;gap:1.25rem;list-style:none;flex-wrap:wrap}
-.nav ul a{color:var(--white);text-decoration:none;font-weight:600;font-size:.95rem;padding:.25rem 0;border-bottom:2px solid transparent}
-.nav ul a:hover,.nav ul a:focus-visible{border-color:var(--yellow)}
-@media(max-width:720px){.nav ul{display:none}}
+/* Scroll bar from the PDF items */
+.bar{position:sticky;top:0;z-index:20;background:var(--yellow);border-top:4px dotted var(--ink);border-bottom:4px dotted var(--ink)}
+.bar ul{list-style:none;margin:0 auto;padding:0;display:flex;gap:clamp(16px,3vw,34px);overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--green) var(--yellow);width:min(1100px,calc(100% - 24px))}
+.bar li{scroll-snap-align:start;flex:none}
+.bar a{display:flex;align-items:center;gap:9px;min-height:50px;font:700 clamp(.95rem,2.4vw,1.15rem) var(--serif);color:var(--ink);white-space:nowrap}
+.bar a:before{content:"";width:16px;height:16px;background:var(--green);border:1px solid var(--ink);flex:none}
+.bar a:hover,.bar a.on{color:var(--deep);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:5px}
+.bar a.on:before{background:var(--ink)}
+.bar li.sep{margin-left:auto}
 
-.lockup{position:relative;width:min(100%,560px);aspect-ratio:2.11/1;background:var(--green);overflow:visible;margin:0 auto}
-.lockup .the,.lockup .garden{font-family:var(--serif);font-weight:700;color:var(--white);position:absolute;text-shadow:.012em .012em 0 var(--ink),.025em .025em 0 var(--ink)}
-.lockup .the{top:4%;left:5%;font-size:clamp(1.4rem,5.2vw,3rem)}
-.lockup .garden{right:3%;bottom:24%;font-size:clamp(2rem,8.6vw,5.1rem);line-height:1}
-.lockup .rustic{position:absolute;left:4%;top:6%;font-family:var(--script);font-style:italic;font-weight:700;color:var(--yellow);font-size:clamp(3.4rem,15vw,9rem);line-height:1;transform:rotate(-9deg);transform-origin:left bottom;text-shadow:.022em .022em 0 var(--ink),.04em .04em 0 var(--ink);letter-spacing:.01em}
-.lockup .dash{position:absolute;left:48%;right:3%;bottom:19%;height:0;border-top:3px dashed var(--yellow)}
-.lockup .band{position:absolute;left:0;right:0;bottom:0;height:15%;background:var(--yellow);display:flex;align-items:center;justify-content:center;gap:2.2%;font-family:var(--serif);font-weight:700;color:var(--ink);font-size:clamp(.55rem,1.9vw,1.05rem);white-space:nowrap;border-top:3px dotted var(--ink);border-bottom:3px dotted var(--ink)}
-.lockup .band i{display:inline-block;width:.7em;height:.7em;background:var(--green);margin-right:.3em}
+/* Sections */
+.sec{padding:84px 0}
+.sec.g{background:var(--green);color:var(--white)}
+.sec.y{background:var(--yellow)}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,6vw,80px);align-items:start}
+h2{font:700 clamp(2.1rem,5vw,3.6rem)/1.1 var(--serif);margin:0;text-shadow:.04em .05em 0 rgba(35,31,32,.9)}
+.sec.y h2,.sec.p h2{text-shadow:none}
+.sec.g h2{color:var(--yellow)}
+.sec p{margin:0 0 16px;max-width:60ch}
+.sec .lede{font:400 1.12rem/1.75 var(--serif)}
+.pts{list-style:none;padding:0;margin:22px 0 26px;display:grid;gap:8px}
+.pts li{display:flex;gap:10px;align-items:baseline}
+.pts li:before{content:"";width:11px;height:11px;background:var(--green);border:1px solid var(--ink);flex:none}
+.g .pts li:before{background:var(--yellow)}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:10px 22px;background:var(--yellow);color:var(--ink);border:3px solid var(--ink);font:700 .95rem var(--sans);box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.y .btn,.p .btn{background:var(--green);color:var(--white)}
+.note{font-size:.82rem;opacity:.85}
 
-.hero{background:var(--paper);padding:3.2rem 0 3.5rem}
-.hero .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:center}
-.hero h1{font-family:var(--serif);font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.15;margin-bottom:1rem}
-.hero p.lead{font-size:1.2rem;max-width:34ch;margin-bottom:1.6rem}
-.btns{display:flex;gap:.8rem;flex-wrap:wrap}
-.btn{display:inline-block;font-weight:700;text-decoration:none;padding:.8rem 1.5rem;border-radius:6px;border:3px solid var(--green);transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn.primary{background:var(--green);color:var(--white)}
-.btn.alt{background:var(--yellow);color:var(--ink);border-color:var(--ink)}
-@media(max-width:820px){.hero .grid{grid-template-columns:1fr}.lockup{order:-1}}
+/* Plants */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:34px}
+.card{background:var(--white);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column}
+.card svg{width:100%;height:210px;background:#e8f3dc;border-bottom:3px solid var(--ink)}
+.card div{padding:22px;display:flex;flex-direction:column;align-items:flex-start;flex:1}
+.card h3{font:700 1.5rem/1.2 var(--serif);margin:0}
+.latin{font-style:italic;font-size:.85rem;color:#4b524a}
+.price{margin:12px 0;background:var(--green);color:var(--white);padding:4px 11px;font-weight:700;font-size:.85rem}
+.card p{font-size:.92rem;margin:0 0 16px}
+.card .btn{margin-top:auto}
 
-section{padding:4rem 0}
-section.tint{background:var(--paper)}
-.eyebrow{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;color:var(--green)}
-h2{font-family:var(--serif);font-size:clamp(1.7rem,3.6vw,2.4rem);line-height:1.2;margin:.3rem 0 .9rem}
-h2+.dots{width:140px;height:8px;margin-bottom:1.5rem}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
-@media(max-width:820px){.two{grid-template-columns:1fr}}
-.facts{list-style:none;display:grid;gap:.7rem}
-.facts li{background:var(--white);border:2px solid var(--green);border-radius:10px;padding:.9rem 1.1rem}
-.facts strong{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--green)}
-
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.2rem;margin-top:1.5rem}
-.card{background:var(--white);border:2px solid var(--ink);border-radius:12px;overflow:hidden;box-shadow:5px 5px 0 var(--ink);display:flex;flex-direction:column}
-.card h3{background:var(--yellow);color:var(--ink);font-family:var(--serif);font-size:1.25rem;padding:.7rem 1rem;border-bottom:3px dotted var(--ink);display:flex;align-items:center;gap:.5rem}
-.card h3::before{content:"";width:.8rem;height:.8rem;background:var(--green);flex:none}
-.card p{padding:1rem;font-size:.98rem}
-.card ul{padding:0 1rem 1rem 2.1rem;font-size:.95rem}
-
-#map{height:440px;border-radius:12px;border:3px solid var(--green);margin-top:1.2rem;z-index:1}
-.legend{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.92rem;margin-top:.8rem}
-.legend span::before{content:"";display:inline-block;width:.9rem;height:.9rem;margin-right:.4rem;vertical-align:-2px;border:2px solid var(--ink)}
-.legend .g1::before{background:var(--green)}.legend .g2::before{background:var(--yellow)}
-
-.contact-box{background:var(--green);color:var(--white);border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.contact-box h2{color:var(--white)}
-.contact-box h2+.dots{background-image:radial-gradient(circle,var(--yellow) 2px,transparent 2.5px)}
-.contact-box a{color:var(--yellow);font-weight:700}
-@media(max-width:820px){.contact-box{grid-template-columns:1fr}}
-form{display:grid;gap:.8rem}
-label{font-weight:700;font-size:.9rem}
-input,textarea,select{width:100%;padding:.7rem;border-radius:6px;border:2px solid var(--ink);font:inherit;background:var(--white);color:var(--ink)}
-form button{cursor:pointer;font:inherit;font-weight:800;background:var(--yellow);color:var(--ink);border:3px solid var(--ink);border-radius:6px;padding:.8rem}
-.note{font-size:.85rem;opacity:.9}
-
-footer{background:var(--ink);color:var(--white);padding:0 0 2rem}
-footer .dots{margin-bottom:1.8rem}
-footer .row{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
-footer a{color:var(--yellow)}
-footer small{display:block;margin-top:1.5rem;opacity:.8;font-size:.82rem}
-:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-header :focus-visible,.contact-box :focus-visible,footer :focus-visible{outline-color:var(--yellow)}
-
-.brand-spec{background:linear-gradient(180deg,rgba(243,247,244,0.6),rgba(255,255,255,0.5));border:2px dashed rgba(35,31,32,0.12);padding:1.4rem;border-radius:12px}
-.brand-swatches{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
-.swatch{width:110px;height:58px;border-radius:8px;border:2px solid rgba(0,0,0,0.08);display:flex;flex-direction:column;justify-content:flex-end;padding:.5rem;font-weight:700}
-.swatch .hex{font-size:.82rem;background:rgba(255,255,255,0.6);padding:.15rem .35rem;border-radius:4px}
-.brand-note{font-size:.95rem;margin-top:.6rem}
+/* Visit */
+.box{background:var(--green);color:var(--white);padding:28px;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.box h3{font:700 1.5rem var(--serif);color:var(--yellow);margin:0 0 10px}
+.box p{margin:8px 0}
+.box .tel{display:grid;gap:6px;margin:14px 0;font-weight:700;color:var(--yellow)}
+.box .tel a{text-decoration:underline;text-underline-offset:3px}
+.map{display:block;width:100%;height:240px;border:3px solid var(--ink);margin-top:18px;background:#dfe9d4}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+footer{background:var(--ink);color:#e9e6c9;padding:26px 0;font-size:.82rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{font:700 1.1rem var(--serif);color:var(--yellow)}
+@media(max-width:760px){.sec{padding:58px 0}.split,.cards{grid-template-columns:1fr}.bar li.sep{margin-left:0}.masthead{padding-top:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
 </head>
 <body>
-
-<header class="site">
-  <div class="nav">
-    <a class="brand" href="#top" title="The Rustic Garden™">The <em>Rustic</em> Garden<span aria-hidden="true">&trade;</span></a>
-    <nav aria-label="Main">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#offers">What we do</a></li>
-        <li><a href="#visit">Find us</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#brand">Brand</a></li>
-      </ul>
-    </nav>
+<header class="masthead" id="top">
+  <div class="wrap">
+    <div class="lockup" role="img" aria-label="The Rustic Garden">
+      <span class="the">The</span><span class="rustic">Rustic</span><span class="garden">Garden</span>
+    </div>
+    <div class="dash" aria-hidden="true"></div>
+    <p class="tagline">A working garden in Kenya: events, coffee, macadamia, fish and research.</p>
   </div>
-  <div class="dots"></div>
 </header>
 
-<main id="top">
+<nav class="bar" aria-label="Sections">
+  <ul>
+    <li><a href="#events">Events Garden</a></li>
+    <li><a href="#coffee">Coffee</a></li>
+    <li><a href="#macadamia">Macadamia</a></li>
+    <li><a href="#aquaculture">Aquaculture</a></li>
+    <li><a href="#rd">R&amp;D</a></li>
+    <li class="sep"><a href="#plants">Plants</a></li>
+    <li><a href="#visit">Find us</a></li>
+  </ul>
+</nav>
 
-<div class="hero">
-  <div class="wrap grid">
-    <div>
-      <p class="eyebrow">Welcome</p>
-      <h1>A working garden for gatherings, coffee, nuts and fish.</h1>
-      <p class="lead">The Rustic Garden is one farm with five lines of work: an events garden, coffee, macadamia, aquaculture and research.</p>
-      <div class="btns">
-        <a class="btn primary" href="#offers">See what we do</a>
-        <a class="btn alt" href="#visit">Find the garden</a>
-      </div>
-    </div>
-
-    <div class="lockup" role="img" aria-label="The Rustic Garden: Events Garden, Coffee, Macadamia, Aquaculture, R&amp;D">
-      <span class="the">The</span>
-      <span class="rustic">Rustic</span>
-      <span class="garden">Garden</span>
-      <span class="dash"></span>
-      <div class="band"><span><i></i>Events Garden</span><span><i></i>Coffee</span><span><i></i>Macadamia</span><span><i></i>Aquaculture</span><span><i></i>R&amp;D</span></div>
-    </div>
-  </div>
-</div>
-
-<section id="about">
-  <div class="wrap two">
-    <div>
-      <p class="eyebrow">About</p>
-      <h2>One name, five ways the land is put to work</h2>
-      <div class="dots"></div>
-      <p>The Rustic Garden is a family-scale farm and garden in Kenya, set out on roughly half a hectare of garden and a little over six-tenths of a hectare of the wider shamba. Everything grown, raised and prepared on site is shaped by the same approach: practical, welcoming and rooted in the land.</p>
-      <p style="margin-top:1rem">The same ground that hosts a gathering also grows coffee and macadamia, holds fish ponds, and serves as a place to try out better ways of farming.</p>
-    </div>
-    <ul class="facts">
-      <li><strong>5</strong> lines of work under one name</li>
-      <li><strong>0.51 ha</strong> garden area (5,107 m²)</li>
-      <li><strong>0.60 ha</strong> shamba boundary (6,030 m²)</li>
-    </ul>
-  </div>
-</section>
-
-<section id="offers" class="tint">
-  <div class="wrap">
-    <p class="eyebrow">What we do</p>
-    <h2>The five offers</h2>
-    <div class="dots"></div>
-    <div class="cards">
-      <article class="card">
-        <h3>Events Garden</h3>
-        <p>An open-air garden venue for celebrations, meetings and quiet visits.</p>
-        <ul><li>Garden gatherings</li><li>Visits and tours</li></ul>
-      </article>
-      <article class="card">
-        <h3>Coffee</h3>
-        <p>Coffee grown on the land, and coffee to enjoy while you are in the garden.</p>
-        <ul><li>Farm-grown coffee</li><li>Refreshments for visitors</li></ul>
-      </article>
-      <article class="card">
-        <h3>Macadamia</h3>
-        <p>Macadamia trees producing nuts for the table and for sale.</p>
-        <ul><li>Nuts in shell</li><li>Processed nuts, as available</li></ul>
-      </article>
-      <article class="card">
-        <h3>Aquaculture</h3>
-        <p>Fish farming that works alongside the garden and crops.</p>
-        <ul><li>Pond-raised fish</li><li>Integrated with the farm</li></ul>
-      </article>
-      <article class="card">
-        <h3>R&amp;D</h3>
-        <p>Trials and learning: testing crops, methods and ideas on working ground.</p>
-        <ul><li>On-farm trials</li><li>Partnerships welcome</li></ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="visit">
-  <div class="wrap">
-    <p class="eyebrow">Find us</p>
-    <h2>Where the garden is</h2>
-    <div class="dots"></div>
-    <p>The map shows the mapped garden area and the wider shamba boundary. Pin: 0.4201° S, 37.4996° E.</p>
-    <div id="map" role="application" aria-label="Map of The Rustic Garden"></div>
-    <div class="legend">
-      <span class="g1">Garden area (0.51 ha)</span>
-      <span class="g2">Shamba boundary (0.60 ha)</span>
-    </div>
-    <div class="btns" style="margin-top:1.2rem">
-      <a class="btn primary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=-0.42014,37.49955">Get directions</a>
-      <a class="btn alt" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=-0.42014,37.49955">Open in Google Maps</a>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="tint">
-  <div class="wrap">
-    <div class="contact-box">
+<main>
+  <section class="sec" id="events">
+    <div class="wrap split">
+      <h2>Events Garden</h2>
       <div>
-        <p class="eyebrow" style="color:var(--yellow)">Contact</p>
-        <h2>Plan a visit or an event</h2>
-        <div class="dots"></div>
-        <p>Tell us what you have in mind: a gathering, a visit, an order or a research partnership. We will reply to confirm details.</p>
-        <p style="margin-top:1rem">
-          Email: <a href="mailto:hello@example.com" id="mail">hello@example.com</a><br>
-          Phone / WhatsApp: <a href="tel:+254000000000" id="tel">+254 000 000 000</a>
-        </p>
-        <p class="note" style="margin-top:.8rem"><!-- TODO: replace both placeholders with the real contact details --></p>
+        <p class="lede">An open garden setting for gatherings, from small family meals to community days.</p>
+        <ul class="pts"><li>Outdoor seating among the plants</li><li>Space for celebrations and workshops</li><li>Ask us about dates and group sizes</li></ul>
+        <a class="btn" href="tel:+254722204997">Ask about an event</a>
       </div>
-      <form id="enquiry" aria-label="Enquiry form">
-        <div><label for="name">Your name</label><input id="name" required></div>
-        <div><label for="topic">I am interested in</label>
-          <select id="topic">
-            <option>Events Garden</option><option>Coffee</option><option>Macadamia</option><option>Aquaculture</option><option>R&amp;D</option><option>Something else</option>
-          </select></div>
-        <div><label for="msg">Message</label><textarea id="msg" rows="4" required></textarea></div>
-        <button type="submit">Send by email</button>
-        <p class="note">This opens your email app with the message filled in.</p>
-      </form>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="brand">
-  <div class="wrap">
-    <p class="eyebrow">Brand</p>
-    <h2>Brand Identity Specification (summary)</h2>
-    <div class="dots"></div>
-    <div class="brand-spec" role="region" aria-label="Brand identity summary">
-      <p class="brand-note"><strong>Document:</strong> RG-BIS-001 — v1.0, draft for sign-off (18 October 2026). Source artwork: "Rustic header_261016_064902.pdf". This page reflects the primary logo architecture, core palette and descriptor layout described in the specification.</p>
+  <section class="sec g" id="coffee">
+    <div class="wrap split">
+      <h2>Coffee</h2>
+      <div>
+        <p class="lede">Kenyan coffee, from the farm to the cup.</p>
+        <ul class="pts"><li>Coffee and cascara</li><li>Tasting and brewing on request</li><li>Ask what is available today</li></ul>
+        <a class="btn" href="tel:+254722204997">Ask about coffee</a>
+      </div>
+    </div>
+  </section>
 
-      <h3 style="margin-top:.8rem">Core colors</h3>
-      <div class="brand-swatches" aria-label="Brand colors">
-        <div class="swatch" style="background:var(--green);color:var(--white)">
-          <div>Rustic Green</div>
-          <div class="hex">#007F3D</div>
-        </div>
-        <div class="swatch" style="background:var(--yellow);color:var(--ink)">
-          <div>Garden Yellow</div>
-          <div class="hex">#FFF200</div>
-        </div>
-        <div class="swatch" style="background:var(--ink);color:var(--white)">
-          <div>Rustic Ink</div>
-          <div class="hex">#231F20</div>
-        </div>
-        <div class="swatch" style="background:var(--white);color:var(--ink);border:2px solid #e6e6e6">
-          <div>Paper White</div>
-          <div class="hex">#FFFFFF</div>
+  <section class="sec y" id="macadamia">
+    <div class="wrap split">
+      <h2>Macadamia</h2>
+      <div>
+        <p class="lede">Macadamia grown and shared from the garden.</p>
+        <ul class="pts"><li>Nuts and nut-based foods</li><li>Seedlings and growing advice</li><li>Ask about current stock</li></ul>
+        <a class="btn" href="tel:+254722204997">Ask about macadamia</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="aquaculture">
+    <div class="wrap split">
+      <h2>Aquaculture</h2>
+      <div>
+        <p class="lede">Fish farming that sits alongside the garden.</p>
+        <ul class="pts"><li>Pond and tank fish keeping</li><li>Water care for gardens and crops</li><li>Ask about visits and supply</li></ul>
+        <a class="btn" href="tel:+254722204997">Ask about aquaculture</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec g" id="rd">
+    <div class="wrap split">
+      <h2>R&amp;D</h2>
+      <div>
+        <p class="lede">Trials and research that keep the garden improving.</p>
+        <ul class="pts"><li>Crop and soil observations</li><li>New products from garden produce</li><li>Open to partners and students</li></ul>
+        <a class="btn" href="tel:+254722204997">Talk to us about R&amp;D</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="plants">
+    <div class="wrap">
+      <h2>Plants from Mandevu at Kwa Nyuki</h2>
+      <p class="lede" style="margin-top:16px">Houseplants and simple care guidance. Call to confirm stock, size and price before visiting.</p>
+      <div class="cards">
+        <article class="card">
+          <svg viewBox="0 0 420 280" aria-hidden="true">
+            <g fill="#2f6b3a" stroke="#231f20" stroke-width="3"><path d="M179 207Q138 108 154 26Q185 80 191 166Z"/><path d="M191 208Q172 85 204 19Q222 91 207 176Z"/><path d="M204 207Q203 100 251 39Q259 116 222 183Z"/><path d="M216 207Q239 118 284 69Q279 143 230 190Z"/><path d="M169 209Q116 151 114 76Q155 118 184 181Z"/></g>
+            <path d="M151 204H269L255 255Q210 267 165 255Z" fill="#c7873f" stroke="#231f20" stroke-width="3"/><ellipse cx="210" cy="204" rx="59" ry="12" fill="#e3b46e" stroke="#231f20" stroke-width="3"/>
+          </svg>
+          <div><h3>Snake plant</h3><span class="latin">Dracaena trifasciata</span><span class="price">KSh 250 · listed price</span><p>Upright, sturdy leaves. Let the soil dry between waterings and use a free-draining mix.</p><a class="btn" href="tel:+254722204997">Ask about this plant</a></div>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 420 280" aria-hidden="true">
+            <g fill="none" stroke="#2f6b3a" stroke-width="5" stroke-linecap="round"><path d="M207 211Q178 146 143 93"/><path d="M207 210Q202 128 205 49"/><path d="M210 211Q240 127 286 89"/><path d="M211 212Q260 166 312 148"/><path d="M205 212Q148 174 105 153"/></g>
+            <g fill="#5aa24a" stroke="#231f20" stroke-width="3"><path d="M143 95Q93 85 75 36Q126 45 143 95Z"/><path d="M205 52Q169 28 190 7Q218 22 205 52Z"/><path d="M286 90Q283 37 324 27Q321 68 286 90Z"/><path d="M311 149Q329 101 367 116Q347 145 311 149Z"/><path d="M106 154Q57 148 48 111Q90 117 106 154Z"/></g>
+            <path d="M152 203H268L254 255Q210 267 166 255Z" fill="#c7873f" stroke="#231f20" stroke-width="3"/><ellipse cx="210" cy="203" rx="58" ry="12" fill="#e3b46e" stroke="#231f20" stroke-width="3"/>
+          </svg>
+          <div><h3>Spider plant</h3><span class="latin">Chlorophytum comosum</span><span class="price">KSh 500 · listed price</span><p>Arching, relaxed foliage. Prefers bright indirect light and soil that is lightly moist.</p><a class="btn" href="tel:+254722204997">Ask about this plant</a></div>
+        </article>
+      </div>
+      <p class="note" style="margin-top:20px;max-width:70ch">Prices are carried over from the plant poster and are indicative, not confirmed live prices. Stock, sizes and pots may vary.</p>
+    </div>
+  </section>
+
+  <section class="sec y" id="visit">
+    <div class="wrap split">
+      <div>
+        <h2>Find us</h2>
+        <p class="lede" style="margin-top:18px">The plant poster places us on Ngina Road, Nairobi: about 500 metres from Sidian Bank and 100 metres before Samwest, on the road to the SDA church.</p>
+        <p>Please call first to confirm the location, opening arrangements and what is available.</p>
+        <div class="acts">
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=-1.2855157%2C36.7341185" target="_blank" rel="noopener noreferrer">Get directions</a>
+          <a class="btn" href="https://www.google.com/maps?q=-1.2855157%2C36.7341185" target="_blank" rel="noopener noreferrer">View map pin</a>
         </div>
       </div>
-
-      <h3 style="margin-top:.8rem">Typography and mark structure</h3>
-      <p class="brand-note">The master mark uses a bold serif for "The" and "Garden" and a custom script for the hero word "Rustic". The descriptor band holds the five lines of business in fixed order: Events Garden, Coffee, Macadamia, Aquaculture, R&amp;D. The lockup sits on a green field, with yellow accents and black shadow to preserve the hand-painted sign style.</p>
-
-      <h3 style="margin-top:.8rem">Trademark and usage notes</h3>
-      <p class="brand-note">The primary lockup is the strongest brand asset. Use the master artwork as a single object; never redraw, recolor, stretch, or crop it. Clear space should be preserved around the mark, and use on white or very light neutral surfaces. The name should appear as "The Rustic Garden" in full, with short form only after first use.</p>
-
-      <p style="margin-top:.8rem"><a href="/assets/RG-BIS-001.pdf" target="_blank" rel="noopener">Download the brand specification PDF</a> (placeholder — add the signed PDF to the /assets folder when approved).</p>
+      <aside class="box" aria-label="Contact details">
+        <h3>Call The Rustic Garden</h3>
+        <p>For events, coffee, macadamia, aquaculture, R&amp;D or plants, use the numbers on the poster.</p>
+        <div class="tel"><a href="tel:+254722204997">+254 722 204 997</a><a href="tel:+254727149757">+254 727 149 757</a></div>
+        <iframe class="map" title="Map of the location on the plant poster" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=-1.2855157%2C36.7341185&amp;output=embed"></iframe>
+        <p class="note">The pin comes from the poster. Confirm it before travelling.</p>
+      </aside>
     </div>
-  </div>
-</section>
-
+  </section>
 </main>
 
 <footer>
-  <div class="dots"></div>
   <div class="wrap">
-    <div class="row">
-      <div>
-        <strong style="font-family:var(--serif);font-size:1.2rem">The Rustic Garden&trade;</strong><br>
-        Events Garden · Coffee · Macadamia · Aquaculture · R&amp;D
-      </div>
-      <div>
-        <a href="#about">About</a> · <a href="#offers">What we do</a> · <a href="#visit">Find us</a> · <a href="#contact">Contact</a>
-      </div>
-    </div>
-    <small>© <span id="yr">2026</span> The Rustic Garden. All rights reserved. The Rustic Garden name and logo are trademarks of the brand owner.</small>
+    <div><b>The Rustic Garden</b><br>Mandevu at Kwa Nyuki · Nairobi, Kenya</div>
+    <div>Confirm prices, stock and location before ordering or travelling.</div>
+    <div>© <span id="y">2026</span> The Rustic Garden</div>
   </div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-var AOI = {"type":"FeatureCollection","features":[
- {"type":"Feature","properties":{"name":"Garden area","area_ha":0.5107},"geometry":{"type":"Polygon","coordinates":[[[37.49937807453734,-0.4205897495673012],[37.4998964494847,-0.4204914628949151],[37.49987198180329,-0.42044442134684743],[37.49963859337556,-0.4202303148949808],[37.499563069784924,-0.4202141681113504],[37.49947873154867,-0.42025384806218576],[37.49946773534559,-0.42033257733149526],[37.49942051695594,-0.4204402804489877],[37.49937807453734,-0.4205897495673012]]]}},
- {"type":"Feature","properties":{"name":"Shamba boundary","area_ha":0.603},"geometry":{"type":"Polygon","coordinates":[[[37.49938918043105,-0.420672731091199],[37.49990620584854,-0.420509066297406],[37.49989947661723,-0.4204668391407691],[37.49985616550104,-0.42041172586372556],[37.49979276112545,-0.4202994699603947],[37.49972692549512,-0.42023562396553074],[37.49963789328397,-0.4202108203911744],[37.49950167331849,-0.4202528654883961],[37.49943204691225,-0.4202983209032959],[37.49938703483932,-0.4203699782426888],[37.49938918043105,-0.420672731091199]]]}}
-]};
-
-(function(){
-  var map = L.map('map',{scrollWheelZoom:false}).setView([-0.42014,37.49955],18);
-  var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'});
-  var sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Imagery &copy; Esri'});
-  sat.addTo(map);
-  L.control.layers({'Satellite':sat,'Street':street}).addTo(map);
-
-  var layer = L.geoJSON(AOI,{
-    style:function(f){
-      return f.properties.name==='Garden area'
-        ? {color:'#007F3D',weight:3,fillColor:'#007F3D',fillOpacity:.35}
-        : {color:'#FFF200',weight:3,dashArray:'8 6',fillColor:'#FFF200',fillOpacity:.12};
-    },
-    onEachFeature:function(f,l){l.bindPopup('<strong>'+f.properties.name+'</strong><br>'+f.properties.area_ha+' ha');}
-  }).addTo(map);
-  map.fitBounds(layer.getBounds(),{padding:[30,30]});
-  L.marker([-0.42014,37.49955]).addTo(map).bindPopup('<strong>The Rustic Garden</strong>');
-  map.once('focus',function(){map.scrollWheelZoom.enable();});
+(()=>{
+  document.getElementById('y').textContent=new Date().getFullYear();
+  const links=[...document.querySelectorAll('.bar a')];
+  if(!('IntersectionObserver' in window))return;
+  const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){links.forEach(l=>l.classList.remove('on'));const a=map.get(e.target.id);
+      if(a){a.classList.add('on');a.scrollIntoView({inline:'nearest',block:'nearest'});}}
+  }),{rootMargin:'-45% 0px -50% 0px'});
+  map.forEach((a,id)=>{const s=document.getElementById(id);if(s)io.observe(s);});
 })();
-
-document.getElementById('yr').textContent = new Date().getFullYear();
-
-document.getElementById('enquiry').addEventListener('submit',function(e){
-  e.preventDefault();
-  var to = document.getElementById('mail').textContent.trim();
-  var subj = 'Enquiry: ' + document.getElementById('topic').value;
-  var body = document.getElementById('msg').value + '\n\n' + document.getElementById('name').value;
-  location.href = 'mailto:'+to+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
-});
 </script>
 </body>
 </html>
